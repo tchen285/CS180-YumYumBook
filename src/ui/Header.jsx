@@ -4,7 +4,7 @@ import SearchOrder from "../features/order/SearchOrder";
 // Getting back to main menu function
 function Header() {
     return (
-        <header>
+        <header className="bg-yellow-500">
             <Link to='/'>Yum Yum Book</Link>
 
             <SearchOrder />
