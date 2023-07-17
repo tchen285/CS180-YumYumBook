@@ -1,4 +1,3 @@
-// id: IIDSAT
 import PropTypes from 'prop-types';
 import { Link, useFetcher } from 'react-router-dom';
 import OrderItem from './OrderItem';
@@ -11,6 +10,7 @@ import {
 } from '../../utils/helpers';
 import { useEffect } from 'react';
 import React from 'react';
+import UpdateOrder from './UpdateOrder';
 
 function Order() {
   const order = useLoaderData();
@@ -74,13 +74,15 @@ function Order() {
 
       <div className="space-y-2 bg-stone-200 py-5 px-6">
         <p className="text-sm font-medium text-stone-600">
-          Price pizza: {formatCurrency(orderPrice)}
+          Food Price: {formatCurrency(orderPrice)}
         </p>
-        {priority && <p>Price priority: {formatCurrency(priorityPrice)}</p>}
+        {priority && <p>Priority Price: {formatCurrency(priorityPrice)}</p>}
         <p className="font-bold">
-          To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
+          Total Price: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+
+      {!priority && <UpdateOrder order={order} />}
     </div>
   );
 }
